@@ -2,6 +2,12 @@
   <img alt="Happy" src="./.github/logo.svg" height="88px" />
 </h1>
 
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/AlexBorgesDev/happy-api" />
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexBorgesDev/happy-api" />
+  <img alt="GitHub" src="https://img.shields.io/github/license/AlexBorgesDev/happy-api" />
+</p>
+
 # Happy - API
 
 Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lugar divertido e alegre. Aqui você alem de ver os *memes* produzidos por outros, você pode compartilhar os seus próprios, tornando a comunidade cada vez maior e mais alegre.
