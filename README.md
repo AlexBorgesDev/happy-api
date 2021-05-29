@@ -36,10 +36,13 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
       - [Obter um post](#obter-um-post)
       - [Obter posts](#obter-posts)
       - [Criar um novo post](#criar-um-novo-post)
+      - [Deletar um post](#deletar-um-post)
+    - [Comentários](#comentários)
+      - [Obter comentários](#obter-comentários)
 
 ## Introdução
 
-Está documentação apresenta todas as coisas que você pode acessar e fazer com a API da rede social Happy. desde obter, criar alterar e deletar informações.
+Está documentação apresenta todas as coisas que você pode acessar e fazer com a API da rede social Happy. desde obter, criar, alterar e deletar informações.
 
 A API foi feita em Node.js usando as libs Express.js + Typescript e outras. Utiliza o Postgres como banco de dados, usando a lib Prisma ORM para fazer as requisições SQL. A API aceita requisições **Multiform-Data** e **JSON** dos tipos:
 
@@ -73,7 +76,7 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 1. Baixe o código já compilado através deste *link*.
 2. Extraia o arquivo com o código em seu local de desejo e acesse o mesmo.
 3. Caso for utilizar o **Docker,** pule as etapas seguintes e vá direto para a seção [*Rodando a API*](#rodando-a-api).
-4. Altere o arquivo .env, adicionando suas próprias configurações.
+4. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo .env.exemple.
 5. Tudo pronto, agora é só seguir os passos da etapa *Rodando a API*.
 
 ### Ambiente de Desenvolvimento
@@ -235,7 +238,7 @@ Para deletar um usuário, uma requisição **`DELETE`** deve ser feita para **`/
 
 ### Posts
 
-Responsável por gerenciar os posts dos usuários. Tendo as funcionalidades de obter, criar, alterar e deletar o(s) posts(s).
+Responsável por gerenciar os posts dos usuários. Tendo as funcionalidades de obter, criar e deletar o(s) posts(s).
 
 #### Obter um post
 
@@ -343,3 +346,21 @@ Para criar um novo post, uma requisição **`POST`** deve ser feita para **`/pos
   "message": "Post created successfully"
 }
 ```
+
+#### Deletar um post
+
+Para deletar um novo post, uma requisição **`DELETE`** deve ser feita para **`/posts/:postId`**, passando o id do post como parâmetro na url, exemplo: `/posts/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Retorna - `Status 201`**
+
+```json
+{
+  "message": "Post deleted successfully"
+}
+```
+
+### Comentários
+
+Responsável por gerenciar os comentários dos usuários nos posts. Tendo as funcionalidades de obter, criar, alterar e deletar o(s) comentário(s).
+
+#### Obter comentários
