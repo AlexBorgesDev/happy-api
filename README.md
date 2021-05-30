@@ -19,7 +19,6 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
   - [Introdução](#introdução)
   - [Pré-Requisitos](#pré-requisitos)
   - [Preparando o Ambiente e Executando a API](#preparando-o-ambiente-e-executando-a-api)
-    - [Ambiente de Testes](#ambiente-de-testes)
     - [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
   - [Referências da API](#referências-da-api)
     - [Seções](#seções)
@@ -74,23 +73,12 @@ Para poder configurar o ambiente para utilizar a API, antes, verifique se você 
 
 Para começar a utilizar a API Happy alguns procedimentos devem ser feitos para cada tipo de uso: **testes** ou **desenvolvimento**.
 
-### Ambiente de Testes
-
-Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu código-fonte, basta seguir os procedimentos abaixo:
-
-1. Baixe o código já compilado através deste **[*link*](#comentários)**.
-2. Extraia o arquivo com o código em seu local de desejo e acesse o mesmo.
-3. Crie um arquivo .env na raiz do projeto e o altere, adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
-4. Execute o comando: `yarn` ou `npm install`, para instalar as dependências.
-5. Rode a API usando o comando: `yarn start` ou `npm run start`.
-6. Vá para *[Referências da API](#referências-da-api)*.
-
 ### Ambiente de Desenvolvimento
 
 1. Clone o repositório com o comando: `git clone https://github.com/AlexBorgesDev/happy-api.git`
 2. Crie um arquivo .env na raiz do projeto e o altere, adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
 3. Instale as dependências com o comando: `yarn` ou `npm install`.
-4. Adicione as tabelas no banco de dados com o comando: `yarn init-db` ou `npm run init-db`.
+4. Adicione as tabelas no banco de dados com o comando: `yarn init-dev-db` ou `npm run init-dev-db`.
 5. Execute a API executando o comando: `yarn dev` ou ``npm run dev`.
 
 > :information_source: O arquivo [Makefile](./Makefile) contem alguns comandos docker, que podem ser executados usando o comando: `make <commando>`. O comando *`make`* é encontrado apenas nos sistemas **Linux** e **macOS**.
