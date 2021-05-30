@@ -39,6 +39,8 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
       - [Deletar um post](#deletar-um-post)
     - [Comentários](#comentários)
       - [Obter comentários](#obter-comentários)
+      - [Criar um comentário](#criar-um-comentário)
+      - [Deletar um comentário](#deletar-um-comentário)
 
 ## Introdução
 
@@ -364,3 +366,105 @@ Para deletar um novo post, uma requisição **`DELETE`** deve ser feita para **`
 Responsável por gerenciar os comentários dos usuários nos posts. Tendo as funcionalidades de obter, criar, alterar e deletar o(s) comentário(s).
 
 #### Obter comentários
+
+Para obter os comentários de um post, uma requisição **`GET`** deve ser feita para **`/comments/:postId`**, exemplo: `/comments/1`. Os comentários filhos de outros comentários podem ser obtidos através da url **`/comments/:postId/:fatherId`**, exemplo: `/comments/1/1`.
+
+**Recebe as Queries:**
+
+Exemplo de query: `/comments/1?page=1`
+
+```typescript
+{
+  page: {
+    type: "number",
+    required: false
+  }
+}
+```
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "page": 1,
+  "take": 20,
+  "data": [
+    {
+      "id": 1,
+      "content": "Conteúdo do comentário",
+      "fatherId": null,
+      "createAt": "2021-05-30T18:32:36.777Z",
+      "updateAt": "2021-05-30T18:32:36.777Z",
+      "haveChildren": false,
+      "post": {
+        "id": 1,
+        "slug": "1621894076434-7328083f0948441d"
+      },
+      "author": {
+        "name": "Alex Borges Ramos",
+        "image": "minhaFotoDePerfil.png"
+      }
+    }
+  ],
+  "total": 1
+}
+```
+
+#### Criar um comentário
+
+Para criar um comentário uma requisição **`GET`** de ser feita para url **`/comments/:postId`**, exemplo: `/comments/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Recebe:**
+
+```typescript
+{
+  content: {
+    min: 1,
+    type: "string",
+    required: true
+  },
+
+  fatherId: {
+    min: 1,
+    type: "number",
+    integer: true,
+    required: false
+  }
+}
+```
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "message": "Comment created successfully",
+  "data": {
+    "id": 1,
+    "content": "O conteúdo do comentário",
+    "fatherId": null,
+    "createAt": "2021-05-30T18:32:36.777Z",
+    "updateAt": "2021-05-30T18:32:36.777Z",
+    "haveChildren": false,
+    "post": {
+      "id": 1,
+      "slug": "1621894076434-7328083f0948441d"
+    },
+    "author": {
+      "name": "Alex Borges Ramos",
+      "image": "minhaFotoDePerfil.png"
+    }
+  }
+}
+```
+
+#### Deletar um comentário
+
+Para deletar um comentário, uma requisição **`DELETE`** de ser feita para **`/comments/:commentId`**, exemplo: `/comments/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "message": "Comment deleted successfully"
+}
+```
