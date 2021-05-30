@@ -29,6 +29,7 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
       - [Criar uma nova seção](#criar-uma-nova-seção)
     - [Usuários](#usuários)
       - [Obter informações de um usuário](#obter-informações-de-um-usuário)
+      - [Obter posts feito por um usuário](#obter-posts-feito-por-um-usuário)
       - [Criar um novo usuário](#criar-um-novo-usuário)
       - [Alterando informações de um usuário](#alterando-informações-de-um-usuário)
       - [Deletando um usuário](#deletando-um-usuário)
@@ -45,7 +46,7 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
       - [Criar uma reação](#criar-uma-reação)
       - [Deletando uma reação](#deletando-uma-reação)
     - [Posts Salvos](#posts-salvos)
-      - [Obter post salvos pelo usuário](#obter-post-salvos-pelo-usuário)
+      - [Obter posts salvos pelo usuário](#obter-posts-salvos-pelo-usuário)
       - [Salvar um post](#salvar-um-post)
       - [Remover um post da lista de posts salvos](#remover-um-post-da-lista-de-posts-salvos)
 
@@ -141,7 +142,7 @@ Responsável por gerenciar as contas dos usuários. Tendo as funcionalidades de 
 
 #### Obter informações de um usuário
 
-Uma requisição **`GET`** deve ser feita para **`/users`** passando o token da seção no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+Uma requisição **`GET`** deve ser feita para **`/users`**, passando o token da seção no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
 
 **Retorna - `Status 200`**
 
@@ -150,6 +151,50 @@ Uma requisição **`GET`** deve ser feita para **`/users`** passando o token da 
   "name": "Alex Borges Ramos",
   "email": "email@email.com",
   "image": "minhaFotoDePerfil.png"
+}
+```
+
+#### Obter posts feito por um usuário
+
+Para obter os posts feitos por um usuário uma requisição **`GET`** deve ser feita para **`/users/posts`**, passando o token da seção no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Recebe as Queries:**
+
+Exemplo de query: `/comments/1?page=1`
+
+```typescript
+{
+  page: {
+    type: "number",
+    integer: true,
+    required: false
+  }
+}
+```
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "page": 1,
+  "take": 20,
+  "data": [
+    {
+      "id": 1,
+      "slug": "1621894076434-7328083f0948441d",
+      "title": "Post Title",
+      "liked": false,
+      "saved": false,
+      "content": "1621894076389-Firs-Post.png",
+      "createAt": "2021-05-24T22:07:56.510Z",
+      "updateAt": "2021-05-24T22:07:56.511Z",
+      "author": {
+        "name": "Alex Borges Ramos",
+        "image": "minhaFotoDePerfil.png"
+      }
+    }
+  ],
+  "total": 1,
 }
 ```
 
@@ -516,9 +561,9 @@ Para deletar uma reação uma requisição **`DELETE`** de ser feita para **`/re
 
 Responsável por obter, salvar e remover posts da lista de posts salvos dos usuários.
 
-#### Obter post salvos pelo usuário
+#### Obter posts salvos pelo usuário
 
-Para obter a lista de post salvos do usuário uma requisição **`GET`** deve ser feita para **`/saved/posts`**. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+Para obter a lista de posts salvos de um usuário, uma requisição **`GET`** deve ser feita para **`/saved/posts`**. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
 
 **Recebe as Queries:**
 
