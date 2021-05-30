@@ -148,7 +148,7 @@ Para obter os posts feitos por um usuário, uma requisição **`GET`** deve ser 
 
 **Recebe as Queries:**
 
-Exemplo de query: `/comments/1?page=1`
+Exemplo de query: `/users?page=1`
 
 ```typescript
 {
@@ -555,7 +555,7 @@ Para obter a lista de posts salvos de um usuário, uma requisição **`GET`** de
 
 **Recebe as Queries:**
 
-Exemplo de query: `/comments/1?page=1`
+Exemplo de query: `/saved/posts?page=1`
 
 ```typescript
 {
