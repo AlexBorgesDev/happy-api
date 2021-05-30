@@ -44,6 +44,10 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
     - [Reações](#reações)
       - [Criar uma reação](#criar-uma-reação)
       - [Deletando uma reação](#deletando-uma-reação)
+    - [Posts Salvos](#posts-salvos)
+      - [Obter post salvos pelo usuário](#obter-post-salvos-pelo-usuário)
+      - [Salvar um post](#salvar-um-post)
+      - [Remover um post da lista de posts salvos](#remover-um-post-da-lista-de-posts-salvos)
 
 ## Introdução
 
@@ -381,6 +385,7 @@ Exemplo de query: `/comments/1?page=1`
 {
   page: {
     type: "number",
+    integer: true,
     required: false
   }
 }
@@ -502,5 +507,79 @@ Para deletar uma reação uma requisição **`DELETE`** de ser feita para **`/re
 ```json
 {
   "message": "Reaction deleted successfully"
+}
+```
+
+---
+
+### Posts Salvos
+
+Responsável por obter, salvar e remover posts da lista de posts salvos dos usuários.
+
+#### Obter post salvos pelo usuário
+
+Para obter a lista de post salvos do usuário uma requisição **`GET`** deve ser feita para **`/saved/posts`**. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Recebe as Queries:**
+
+Exemplo de query: `/comments/1?page=1`
+
+```typescript
+{
+  page: {
+    type: "number",
+    integer: true,
+    required: false
+  }
+}
+```
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "page": 1,
+  "take": 20,
+  "data": [
+    {
+      "id": 1,
+      "slug": "1621894076434-7328083f0948441d",
+      "title": "Post Title",
+      "liked": false,
+      "saved": true,
+      "content": "1621894076389-Firs-Post.png",
+      "createAt": "2021-05-24T22:07:56.510Z",
+      "updateAt": "2021-05-24T22:07:56.511Z",
+      "author": {
+        "name": "Alex Borges Ramos",
+        "image": "minhaFotoDePerfil.png"
+      }
+    }
+  ],
+  "total": 1
+}
+```
+
+#### Salvar um post
+
+Para adicionar/salvar um post na lista de posts salvos do usuário, uma requisição **`POST`** deve ser feita para **`/saved/posts/:postId`**, exemplo: `/saved/posts/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "message": "Saved post successfully"
+}
+```
+
+#### Remover um post da lista de posts salvos
+
+Para remover um post da list de posts salvos do usuário, uma requisição **`DELETE`** deve ser feita para **`/saved/posts/:postId`**, exemplo: `/saved/posts/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "message": "The post has been removed from your list of saved posts"
 }
 ```
