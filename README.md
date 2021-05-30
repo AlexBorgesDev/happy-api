@@ -93,6 +93,8 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 
 Todas as rotas e suas funções poderão ser encontradas a partir dá aqui.
 
+> :warning: Para obter arquivos que foram upados para o servidor basta fazer uma requisição para a raiz `/` informando o nome do arquivo, exemplo: `/nomeDoArquivo.png`.
+
 ### Seções
 
 Responsável por criar e armazenar as seções e, também, gerar tokens de seções para os usuários.
