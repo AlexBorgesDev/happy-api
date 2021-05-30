@@ -18,12 +18,9 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
   - [Sumário](#sumário)
   - [Introdução](#introdução)
   - [Pré-Requisitos](#pré-requisitos)
-  - [Preparando o Ambiente](#preparando-o-ambiente)
+  - [Preparando o Ambiente e Executando a API](#preparando-o-ambiente-e-executando-a-api)
     - [Ambiente de Testes](#ambiente-de-testes)
     - [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
-  - [Rodando a API](#rodando-a-api)
-    - [Docker](#docker)
-    - [Localhost](#localhost)
   - [Referências da API](#referências-da-api)
     - [Seções](#seções)
       - [Criar uma nova seção](#criar-uma-nova-seção)
@@ -73,7 +70,7 @@ Para poder configurar o ambiente para utilizar a API, antes, verifique se você 
 2. Postgres - v13.3 ou superior
 3. PgAdmin 4 - v5.3 ou superior (Opcional)
 
-## Preparando o Ambiente
+## Preparando o Ambiente e Executando a API
 
 Para começar a utilizar a API Happy alguns procedimentos devem ser feitos para cada tipo de uso: **testes** ou **desenvolvimento**.
 
@@ -81,18 +78,21 @@ Para começar a utilizar a API Happy alguns procedimentos devem ser feitos para 
 
 Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu código-fonte, basta seguir os procedimentos abaixo:
 
-1. Baixe o código já compilado através deste *link*.
+1. Baixe o código já compilado através deste **[*link*](#comentários)**.
 2. Extraia o arquivo com o código em seu local de desejo e acesse o mesmo.
 3. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
-4. Tudo pronto, agora é só seguir os passos da etapa *Rodando a API*.
+4. Execute o comando: `yarn` ou `npm install`, para instalar as dependências.
+5. Rode a API usando o comando: `yarn start` ou `npm run start`.
+6. Vá para *[Referências da API](#referências-da-api)*.
 
 ### Ambiente de Desenvolvimento
 
-## Rodando a API
+1. Clone o repositório com o comando: `git clone https://github.com/AlexBorgesDev/happy-api.git`
+2. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
+3. Instale as dependências com o comando: `yarn` ou `npm install`.
+4. Execute a API executando o comando: `yarn dev` ou ``npm run dev`.
 
-### Docker
-
-### Localhost
+> :information_source: O arquivo [Makefile](./Makefile) contem alguns comandos docker, que podem ser executados usando o comando: `make <command>`
 
 ## Referências da API
 
@@ -156,7 +156,7 @@ Uma requisição **`GET`** deve ser feita para **`/users`**, passando o token da
 
 #### Obter posts feito por um usuário
 
-Para obter os posts feitos por um usuário uma requisição **`GET`** deve ser feita para **`/users/posts`**, passando o token da seção no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+Para obter os posts feitos por um usuário, uma requisição **`GET`** deve ser feita para **`/users/posts`**, passando o token da seção no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
 
 **Recebe as Queries:**
 
