@@ -482,7 +482,7 @@ Responsável por controlar as reações dos usuários em relação aos posts, po
 
 Para criar uma reação uma requisição **`POST`** deve ser feita para **`/reactions/:postId`**, exemplo: `/reactions/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
 
-> :information_source: No momento a reação criada é de *like* é criada por default, sedo a única reação disponível.
+> :information_source: No momento, a reação criada *like* é criada por default, sedo a única reação disponível.
 
 **Retorna - `Status 201`**
 
