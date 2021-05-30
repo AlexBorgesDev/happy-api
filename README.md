@@ -80,7 +80,7 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 
 1. Baixe o código já compilado através deste **[*link*](#comentários)**.
 2. Extraia o arquivo com o código em seu local de desejo e acesse o mesmo.
-3. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
+3. Crie um arquivo .env na raiz do projeto e o altere, adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
 4. Execute o comando: `yarn` ou `npm install`, para instalar as dependências.
 5. Rode a API usando o comando: `yarn start` ou `npm run start`.
 6. Vá para *[Referências da API](#referências-da-api)*.
@@ -88,11 +88,11 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 ### Ambiente de Desenvolvimento
 
 1. Clone o repositório com o comando: `git clone https://github.com/AlexBorgesDev/happy-api.git`
-2. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
+2. Crie um arquivo .env na raiz do projeto e o altere, adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
 3. Instale as dependências com o comando: `yarn` ou `npm install`.
 4. Execute a API executando o comando: `yarn dev` ou ``npm run dev`.
 
-> :information_source: O arquivo [Makefile](./Makefile) contem alguns comandos docker, que podem ser executados usando o comando: `make <command>`
+> :information_source: O arquivo [Makefile](./Makefile) contem alguns comandos docker, que podem ser executados usando o comando: `make <commando>`. O comando *`make`* é encontrado apenas nos sistemas **Linux** e **macOS**.
 
 ## Referências da API
 
