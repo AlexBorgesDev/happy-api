@@ -41,6 +41,9 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
       - [Obter comentários](#obter-comentários)
       - [Criar um comentário](#criar-um-comentário)
       - [Deletar um comentário](#deletar-um-comentário)
+    - [Reações](#reações)
+      - [Criar uma reação](#criar-uma-reação)
+      - [Deletando uma reação](#deletando-uma-reação)
 
 ## Introdução
 
@@ -93,7 +96,7 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 
 Todas as rotas e suas funções poderão ser encontradas a partir dá aqui.
 
-> :warning: Para obter arquivos que foram upados para o servidor basta fazer uma requisição para a raiz `/` informando o nome do arquivo, exemplo: `/nomeDoArquivo.png`.
+> :warning: Para obter arquivos que foram upados para o servidor, basta fazer uma requisição para a raiz `/` informando o nome do arquivo, exemplo: `/nomeDoArquivo.png`.
 
 ### Seções
 
@@ -468,5 +471,35 @@ Para deletar um comentário, uma requisição **`DELETE`** de ser feita para **`
 ```json
 {
   "message": "Comment deleted successfully"
+}
+```
+
+### Reações
+
+Responsável por controlar as reações dos usuários em relação aos posts, podendo criar, alterar e deleta-las, estando disponível no memento apenas a reação de *like*.
+
+#### Criar uma reação
+
+Para criar uma reação uma requisição **`POST`** deve ser feita para **`/reactions/:postId`**, exemplo: `/reactions/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+> :information_source: No momento a reação criada é de *like* é criada por default, sedo a única reação disponível.
+
+**Retorna - `Status 201`**
+
+```json
+{
+  "message": "Reaction created successfully"
+}
+```
+
+#### Deletando uma reação
+
+Para deletar uma reação uma requisição **`DELETE`** de ser feita para **`/reactions/:postId`**, exemplo: `/reactions/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
+
+**Retorna - `Status 200`**
+
+```json
+{
+  "message": "Reaction deleted successfully"
 }
 ```
