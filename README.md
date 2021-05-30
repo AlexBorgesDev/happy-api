@@ -64,8 +64,6 @@ Todas as requisições terão retornos do tipo **JSON**.
 
 Para poder configurar o ambiente para utilizar a API, antes, verifique se você já possui o que é necessário instalado em sua máquina.
 
-> Caso tenha o Docker & Docker Compose instalados, os aplicativos abaixo não serão mais necessários, podendo ignorar os memos e seguir para as seções seguintes.
-
 1. Node.js - v14.17.0 ou superior
 2. Postgres - v13.3 ou superior
 3. PgAdmin 4 - v5.3 ou superior (Opcional)
@@ -80,9 +78,8 @@ Caso deseje utiliza a API apenas para testes, ou seja, não deseja alterar seu c
 
 1. Baixe o código já compilado através deste *link*.
 2. Extraia o arquivo com o código em seu local de desejo e acesse o mesmo.
-3. Caso for utilizar o **Docker,** pule as etapas seguintes e vá direto para a seção [*Rodando a API*](#rodando-a-api).
-4. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo .env.exemple.
-5. Tudo pronto, agora é só seguir os passos da etapa *Rodando a API*.
+3. Crie um arquivo .env na raiz do projeto, altere o arquivo adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
+4. Tudo pronto, agora é só seguir os passos da etapa *Rodando a API*.
 
 ### Ambiente de Desenvolvimento
 
