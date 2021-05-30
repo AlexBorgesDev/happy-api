@@ -64,13 +64,13 @@ Todas as requisições terão retornos do tipo **JSON**.
 
 Para poder configurar o ambiente para utilizar a API, antes, verifique se você já possui o que é necessário instalado em sua máquina.
 
-1. Node.js - v14.17.0 ou superior
-2. Postgres - v13.3 ou superior
-3. PgAdmin 4 - v5.3 ou superior (Opcional)
+1. [Node.js](https://nodejs.org/) - v14.17.0 ou superior
+2. [Postgres](https://www.postgresql.org/) - v13.3 ou superior
+3. [PgAdmin 4](https://www.pgadmin.org/) - v5.3 ou superior (Opcional)
 
 ## Preparando o Ambiente e Executando a API
 
-Para começar a utilizar a API Happy alguns procedimentos devem ser feitos para cada tipo de uso: **testes** ou **desenvolvimento**.
+Para começar a utilizar a API Happy alguns procedimentos devem ser feitos.
 
 ### Ambiente de Desenvolvimento
 
@@ -78,7 +78,7 @@ Para começar a utilizar a API Happy alguns procedimentos devem ser feitos para 
 2. Crie um arquivo .env na raiz do projeto e o altere, adicionando suas propiás configurações de acordo com o arquivo [.exemple.env](./.exemple.env).
 3. Instale as dependências com o comando: `yarn` ou `npm install`.
 4. Adicione as tabelas no banco de dados com o comando: `yarn init-dev-db` ou `npm run init-dev-db`.
-5. Execute a API executando o comando: `yarn dev` ou ``npm run dev`.
+5. Execute a API executando o comando: `yarn dev` ou `npm run dev`.
 
 > :information_source: O arquivo [Makefile](./Makefile) contem alguns comandos docker, que podem ser executados usando o comando: `make <commando>`. O comando *`make`* é encontrado apenas nos sistemas **Linux** e **macOS**.
 
