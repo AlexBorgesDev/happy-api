@@ -366,6 +366,8 @@ Para deletar um novo post, uma requisição **`DELETE`** deve ser feita para **`
 }
 ```
 
+---
+
 ### Comentários
 
 Responsável por gerenciar os comentários dos usuários nos posts. Tendo as funcionalidades de obter, criar, alterar e deletar o(s) comentário(s).
@@ -474,6 +476,8 @@ Para deletar um comentário, uma requisição **`DELETE`** de ser feita para **`
 }
 ```
 
+---
+
 ### Reações
 
 Responsável por controlar as reações dos usuários em relação aos posts, podendo criar, alterar e deleta-las, estando disponível no memento apenas a reação de *like*.
@@ -482,7 +486,7 @@ Responsável por controlar as reações dos usuários em relação aos posts, po
 
 Para criar uma reação uma requisição **`POST`** deve ser feita para **`/reactions/:postId`**, exemplo: `/reactions/1`. O token da seção também deve ser informado no **Header** da requisição, através do campo *Authorization*, tendo o seguinte formato: `Bearer <token>`.
 
-> :information_source: No momento, a reação criada *like* é criada por default, sedo a única reação disponível.
+> :information_source: No momento, a reação criada *like* é criada por default, sendo a única reação disponível.
 
 **Retorna - `Status 201`**
 
