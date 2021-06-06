@@ -1,25 +1,25 @@
 import { Router } from 'express'
 
-import sectionControllers from '../controllers/section.controllers'
+import sessionControllers from '../controllers/session.controllers'
 import savedPostControllers from '../controllers/savedPost.controllers'
 
 const savedPostRoutes = Router()
 
 savedPostRoutes.get(
   '/',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   savedPostControllers.index
 )
 
 savedPostRoutes.post(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   savedPostControllers.create
 )
 
 savedPostRoutes.delete(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   savedPostControllers.delete
 )
 

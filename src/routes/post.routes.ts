@@ -4,26 +4,26 @@ import { Router } from 'express'
 
 import multerConfigs from '../configs/multer.configs'
 import postControllers from '../controllers/post.controllers'
-import sectionControllers from '../controllers/section.controllers'
+import sessionControllers from '../controllers/session.controllers'
 
 const postRoutes = Router()
 
 postRoutes.get(
   '/',
-  sectionControllers.optionalAuthorization,
+  sessionControllers.optionalAuthorization,
   postControllers.index
 )
 
 postRoutes.post(
   '/',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   multer(multerConfigs.image()).single('content'),
   postControllers.create
 )
 
 postRoutes.delete(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   postControllers.delete
 )
 

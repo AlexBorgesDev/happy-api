@@ -1,19 +1,19 @@
 import { Router } from 'express'
 
-import sectionControllers from '../controllers/section.controllers'
+import sessionControllers from '../controllers/session.controllers'
 import reactionControllers from '../controllers/reaction.controllers'
 
 const reactionRoutes = Router()
 
 reactionRoutes.post(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   reactionControllers.create
 )
 
 reactionRoutes.delete(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   reactionControllers.delete
 )
 

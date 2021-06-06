@@ -20,8 +20,8 @@ Happy é uma rede social focada nos famosos *memes*, com o intuito de ser uma lu
 - [Preparando o Ambiente e Executando a API](#preparando-o-ambiente-e-executando-a-api)
   - [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
 - [Referências da API](#referências-da-api)
-  - [Seções](#seções)
-    - [Criar uma nova seção](#criar-uma-nova-seção)
+  - [Sessões](#sessões)
+    - [Criar uma nova sessão](#criar-uma-nova-sessão)
   - [Usuários](#usuários)
     - [Obter informações de um usuário](#obter-informações-de-um-usuário)
     - [Obter posts feito por um usuário](#obter-posts-feito-por-um-usuário)
@@ -88,13 +88,13 @@ Todas as rotas e suas funções poderão ser encontradas a partir dá aqui.
 
 > :warning: Para obter arquivos que foram upados para o servidor, basta fazer uma requisição para a raiz `/` informando o nome do arquivo, exemplo: `/nomeDoArquivo.png`.
 
-### Seções
+### Sessões
 
-Responsável por criar e armazenar as seções e, também, gerar tokens de seções para os usuários.
+Responsável por criar e armazenar as sessões e, também, gerar tokens de sessões para os usuários.
 
-#### Criar uma nova seção
+#### Criar uma nova sessão
 
-Para criar uma nova seção, uma requisição **`POST`** deve ser feita para **`/sections`**.
+Para criar uma nova sessão, uma requisição **`POST`** deve ser feita para **`/sessions`**.
 
 **Recebe:**
 
@@ -118,6 +118,11 @@ Para criar uma nova seção, uma requisição **`POST`** deve ser feita para **`
 
 ```json
 {
+  "data": {
+    "name": "Alex Borges Ramos",
+    "email": "email@email.com",
+    "password": "defaultImage.png"
+  },
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyMTg5NDA1NSwiZXhwIjoxNjMyOTUzMjU1fQ.G7i2yheOxulCmGyMDHzlbVOl84K4ChmogFUcFllPkoo"
 }
 ```

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import commentControllers from '../controllers/comment.controllers'
-import sectionControllers from '../controllers/section.controllers'
+import sessionControllers from '../controllers/session.controllers'
 
 const commentRoutes = Router()
 
@@ -10,13 +10,13 @@ commentRoutes.get('/:postId/:fatherId', commentControllers.index)
 
 commentRoutes.post(
   '/:postId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   commentControllers.create
 )
 
 commentRoutes.delete(
   '/:commentId',
-  sectionControllers.authorization,
+  sessionControllers.authorization,
   commentControllers.delete
 )
 
