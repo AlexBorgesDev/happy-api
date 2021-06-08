@@ -38,7 +38,7 @@ const errors: ErrorRequestHandler = (error, req, res, next) => {
   }
 
   if (error instanceof JsonWebTokenError) {
-    return res.status(400).json({ error: 'Token error' })
+    return res.status(401).json({ error: 'Token error' })
   }
 
   console.error(error)
