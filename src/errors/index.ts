@@ -1,5 +1,6 @@
 import { MulterError } from 'multer'
 import { ValidationError } from 'yup'
+import { JsonWebTokenError } from 'jsonwebtoken'
 import { ErrorRequestHandler } from 'express'
 
 import deleteFiles from '../utils/deleteFiles'
@@ -34,6 +35,10 @@ const errors: ErrorRequestHandler = (error, req, res, next) => {
       error: 'Invalid fields',
       errors: error.field ? { [error.field]: [error.message] } : {}
     })
+  }
+
+  if (error instanceof JsonWebTokenError) {
+    return res.status(400).json({ error: 'Token error' })
   }
 
   console.error(error)
